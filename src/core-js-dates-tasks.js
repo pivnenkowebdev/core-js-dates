@@ -33,13 +33,8 @@ function dateToTimestamp(date) {
  * Date(2015, 10, 20, 23, 15, 1) => '23:15:01'
  */
 function getTime(date) {
-  const currDate = new Date(date);
-  const hours = String(currDate.getHours()).padStart(2, 0);
-  const minutes = String(currDate.getMinutes()).padStart(2, 0);
-  const seconds = String(currDate.getSeconds()).padStart(2, 0);
-  return `${hours}:${minutes}:${seconds}`;
+  return new Date(date).toLocaleTimeString('ru');
 }
-// !!!!!!!! ПЕРЕПИСАТЬ НА СПЕЦИАЛЬНЫЙ МЕТОД ФОРМАТИРОВАНИЯ
 
 /**
  * Returns the name of the day of the week for a given date string.
