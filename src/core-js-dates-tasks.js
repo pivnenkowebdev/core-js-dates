@@ -18,7 +18,8 @@
  * '04 Dec 1995 00:12:00 UTC' => 818035920000
  */
 function dateToTimestamp(date) {
-  return Date.parse(date);
+  const test = new Date(date);
+  return test.getTime();
 }
 
 /**
@@ -38,6 +39,7 @@ function getTime(date) {
   const seconds = String(currDate.getSeconds()).padStart(2, 0);
   return `${hours}:${minutes}:${seconds}`;
 }
+// !!!!!!!! ПЕРЕПИСАТЬ НА СПЕЦИАЛЬНЫЙ МЕТОД ФОРМАТИРОВАНИЯ
 
 /**
  * Returns the name of the day of the week for a given date string.
