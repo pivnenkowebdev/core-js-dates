@@ -71,7 +71,9 @@ function getNextFriday(date) {
   if (currentDayOfWeek === 5) {
     currDay.setDate(currDay.getDate() + 7);
   }
-  currDay.setDate(currDay.getDate() + ((5 - currDay.getDay() + 7) % 7));
+  while (currDay.getDay() !== 5) {
+    currDay.setDate(currDay.getDate() + 1);
+  }
   return currDay;
 }
 
