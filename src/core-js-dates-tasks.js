@@ -111,9 +111,6 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
   const day = 86400000;
   return Math.round((endDate - firstDate) / day + 1);
 }
-// 1. получить количество дней из первой даты
-// 2. получить количество дней из второй даты
-// 3. вычесть из большего меньшее и вернуть результат или Math.abs()
 
 /**
  * Returns true if a given date is within a specified range, including both the start and end dates.
@@ -132,8 +129,11 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
  * '2024-02-02', { start: '2024-02-02', end: '2024-03-02' } => true
  * '2024-02-10', { start: '2024-02-02', end: '2024-03-02' } => true
  */
-function isDateInPeriod(/* date, period */) {
-  throw new Error('Not implemented');
+function isDateInPeriod(date, period) {
+  const startDate = new Date(period.start);
+  const endDate = new Date(period.end);
+  const currDay = new Date(date);
+  return currDay >= startDate && currDay <= endDate;
 }
 
 /**
