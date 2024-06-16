@@ -166,18 +166,18 @@ function formatDate(date) {
  * 1, 2024 => 8
  */
 function getCountWeekendsInMonth(month, year) {
-  const currDate = new Date(year, month);
-  const currMonth = currDate.setDate(0) - 1;
-  new Date(currMonth).getDate();
-  let offDays = 0;
-  let counterDaysInMonth = 0;
-  while (counterDaysInMonth <= currMonth) {
-    if (counterDaysInMonth === 5 || counterDaysInMonth === 6) {
-      offDays += 1;
+  const lastDayInMonth = new Date(year, month, 0).getDate();
+  let currDayMonth = 1;
+  let offDayCounter = 0;
+  while (currDayMonth <= lastDayInMonth) {
+    const currentDate = new Date(year, month - 1, currDayMonth);
+    const offDayIndex = currentDate.getDay();
+    if (offDayIndex === 0 || offDayIndex === 6) {
+      offDayCounter += 1;
     }
-    counterDaysInMonth += 1;
+    currDayMonth += 1;
   }
-  return offDays;
+  return offDayCounter;
 }
 
 /**
