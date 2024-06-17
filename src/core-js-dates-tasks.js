@@ -194,6 +194,9 @@ function getCountWeekendsInMonth(month, year) {
  * Date(2024, 1, 23) => 8
  */
 function getWeekNumberByDate(/* date */) {
+  // 1. Получить количество миллисекунд полученной даты от 01.01.1970
+  // 2. Получить разницу в миллесекундах с текущей датой
+  // 3. Разделить количество миллесекунд в неделе
   throw new Error('Not implemented');
 }
 
@@ -272,8 +275,10 @@ function getWorkSchedule(/* period, countWorkDays, countOffDays */) {
  * Date(2022, 2, 1) => false
  * Date(2020, 2, 1) => true
  */
-function isLeapYear(/* date */) {
-  throw new Error('Not implemented');
+function isLeapYear(date) {
+  const testDate = new Date(date);
+  const currYear = testDate.getFullYear();
+  return (currYear % 4 === 0 && currYear % 100 !== 0) || currYear % 400 === 0;
 }
 
 module.exports = {
